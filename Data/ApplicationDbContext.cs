@@ -12,5 +12,6 @@ namespace Mineralab.Data
             : base(options)
         {
         }
+         public DbSet<Mineralab.Models.Metodo> Metodo { get; set; }
     }
 }
