@@ -1,0 +1,68 @@
+@model IEnumerable<Mineralab.Models.Cliente>
+
+@{
+    var count = 1;
+}
+
+<div class="container">
+    <br>
+    <h2>Registros</h2>
+    <br>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>                  
+                <th scope="col">
+                    №
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.ruc)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.telefono)
+                </th>
+                <th scope="col" colspan="2">
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th scope="col" colspan="2">
+                    @Html.DisplayNameFor(model => model.direccion)
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">
+                    @count
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ruc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <th scope="row">
+                    <a asp-action="Editar" asp-route-id="@item.id" class="btn btn-success active" role="button">Editar</a> 
+                    <a asp-action="Eliminar" asp-route-id="@item.id" class="btn btn-success active" role="button" onclick="return confirm('Esta seguro que desea eliminar? : @item.id ')">Eliminar</a>
+                </th>
+            </tr>
+            count++;
+        }        
+        </tbody> 
+    </table>
+    <a class="btn btn-success float-right" role="button" asp-action="Crear">Registrar</a><br>
+</div>

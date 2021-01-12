@@ -1,0 +1,44 @@
+@model Mineralab.Models.Cliente
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-4">
+        <h1 class="display-4">Editar datos</h1><br>
+        <form  asp-controller="Cliente" asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group text-left">
+                <label asp-for="nombre" class="control-label"></label>
+                <input asp-for="nombre" class="form-control"> 
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group text-left">
+                <label asp-for="ruc" class="control-label"></label>
+                <input asp-for="ruc" class="form-control"> 
+                <span asp-validation-for="ruc" class="text-danger"></span>
+            </div>
+            <div class="form-group text-left">
+                <label asp-for="telefono" class="control-label"></label>
+                <input asp-for="telefono" class="form-control"> 
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group text-left">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control"> 
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group text-left">
+                <label asp-for="direccion" class="control-label"></label>
+                <input asp-for="direccion" class="form-control"> 
+                <span asp-validation-for="direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">Actualizar</button>
+            </div><br>
+        </form>
+    </div>
+</div>
+</div>
