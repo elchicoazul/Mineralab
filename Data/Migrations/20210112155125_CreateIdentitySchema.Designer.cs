@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Mineralab.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201207150331_CreateIdentitySchema")]
+    [Migration("20210112155125_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -217,6 +217,42 @@ namespace Mineralab.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Mineralab.Models.Cliente", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("direccion")
+                        .IsRequired()
+                        .HasColumnName("direccion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("email")
+                        .HasColumnName("email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("nombre")
+                        .IsRequired()
+                        .HasColumnName("nombre")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ruc")
+                        .IsRequired()
+                        .HasColumnName("ruc")
+                        .HasColumnType("text");
+
+                    b.Property<int>("telefono")
+                        .HasColumnName("telefono")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
+
+                    b.ToTable("T_clientes");
                 });
 
             modelBuilder.Entity("Mineralab.Models.Metodo", b =>

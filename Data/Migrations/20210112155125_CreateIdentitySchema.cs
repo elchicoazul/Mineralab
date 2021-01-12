@@ -48,6 +48,23 @@ namespace Mineralab.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "T_clientes",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombre = table.Column<string>(nullable: false),
+                    ruc = table.Column<string>(nullable: false),
+                    telefono = table.Column<int>(nullable: false),
+                    email = table.Column<string>(nullable: true),
+                    direccion = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T_clientes", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "T_metodos",
                 columns: table => new
                 {
@@ -220,6 +237,9 @@ namespace Mineralab.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "T_clientes");
 
             migrationBuilder.DropTable(
                 name: "T_metodos");

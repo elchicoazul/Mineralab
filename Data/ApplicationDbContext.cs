@@ -13,5 +13,6 @@ namespace Mineralab.Data
         {
         }
          public DbSet<Mineralab.Models.Metodo> Metodo { get; set; }
+         public DbSet<Mineralab.Models.Cliente> Cliente { get; set; }
     }
 }
