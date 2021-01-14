@@ -253,6 +253,24 @@ namespace Mineralab.Data.Migrations
                     b.ToTable("T_clientes");
                 });
 
+            modelBuilder.Entity("Mineralab.Models.Columna", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("nombre")
+                        .HasColumnType("text");
+
+                    b.Property<int>("pruebaid")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
+
+                    b.ToTable("T_Column");
+                });
+
             modelBuilder.Entity("Mineralab.Models.Metodo", b =>
                 {
                     b.Property<int>("ID")
@@ -268,6 +286,30 @@ namespace Mineralab.Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("T_metodos");
+                });
+
+            modelBuilder.Entity("Mineralab.Models.Prueba", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("cantidad")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("categoriaid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("nombre")
+                        .HasColumnType("text");
+
+                    b.Property<double>("precio")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("id");
+
+                    b.ToTable("T_Prueba");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
