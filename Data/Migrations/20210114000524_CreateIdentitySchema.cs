@@ -65,6 +65,20 @@ namespace Mineralab.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "T_Column",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    pruebaid = table.Column<int>(nullable: false),
+                    nombre = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T_Column", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "T_metodos",
                 columns: table => new
                 {
@@ -75,6 +89,22 @@ namespace Mineralab.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T_metodos", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "T_Prueba",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    categoriaid = table.Column<int>(nullable: false),
+                    nombre = table.Column<string>(nullable: true),
+                    precio = table.Column<double>(nullable: false),
+                    cantidad = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T_Prueba", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -242,7 +272,13 @@ namespace Mineralab.Data.Migrations
                 name: "T_clientes");
 
             migrationBuilder.DropTable(
+                name: "T_Column");
+
+            migrationBuilder.DropTable(
                 name: "T_metodos");
+
+            migrationBuilder.DropTable(
+                name: "T_Prueba");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

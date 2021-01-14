@@ -3,11 +3,13 @@
 
 @{
     ViewData["Title"] = "Metodo";
+    Prueba pru =  new Prueba();
+    Columna colunm =  new  Columna();
 }
 
 <div class="row">
     <div class="col-md-4">  
-        <h1 class="display-4">Contacto</h1>
+        <h1 class="display-4">Categoria</h1>
         <form asp-controller="Metodo" asp-action="Registrar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -15,6 +17,61 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+               <div class="form-group">
+                 <button type="submit" class="btn btn-default">Registrar</button> 
+            </div> 
+         </form>
+          
+         
+    
+    </div>
+    <div class="col-md-4">  
+        <h1 class="display-4">Prueba</h1>
+        <form asp-controller="Metodo" asp-action="Registrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@pru.categoriaid" class="control-label"></label>
+                <input asp-for="@pru.categoriaid" class="form-control" />
+                <span asp-validation-for="@pru.categoriaid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@pru.nombre" class="control-label"></label>
+                <input asp-for="@pru.nombre" class="form-control" />
+                <span asp-validation-for="@pru.nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@pru.precio" class="control-label"></label>
+                <input asp-for="@pru.precio" class="form-control" />
+                <span asp-validation-for="@pru.precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@pru.cantidad" class="control-label"></label>
+                <input asp-for="@pru.cantidad" class="form-control" />
+                <span asp-validation-for="@pru.cantidad" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                 <button type="submit" class="btn btn-default">Registrar</button> 
+            </div> 
+         </form>
+          
+         
+    
+    </div>
+    <div class="col-md-4">  
+        <h1 class="display-4">Detalle Prueba</h1>
+        <form asp-controller="Metodo" asp-action="Registrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-group">
+                <label asp-for="@colunm.pruebaid" class="control-label"></label>
+                <input asp-for="@colunm.pruebaid" class="form-control" />
+                <span asp-validation-for="@colunm.pruebaid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@colunm.nombre" class="control-label"></label>
+                <input asp-for="@colunm.nombre" class="form-control" />
+                <span asp-validation-for="@colunm.nombre" class="text-danger"></span>
+            </div>
+            
                <div class="form-group">
                  <button type="submit" class="btn btn-default">Registrar</button> 
             </div> 
