@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Mineralab.Models;
+using System.Dynamic;
 
 using Mineralab.Data;
 
@@ -24,10 +25,18 @@ namespace Mineralab.Controllers
 
         public IActionResult Index()
         {
-            return View();
+              var ListMetodos=_context.Metodo.ToList();
+     var LisPruebas=_context.Prueba.ToList();
+            //Resultado resultado = new Resultado();
+            dynamic model = new ExpandoObject();
+            //model.r = resultado;
+            model.meto = ListMetodos;
+            model.prue=LisPruebas;
+          
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Registrar(Metodo objContacto){
+        public IActionResult Registrar([Bind(Prefix="met")]Metodo objContacto){
             if (ModelState.IsValid)
             {
                 _context.Add(objContacto);
