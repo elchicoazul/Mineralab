@@ -35,5 +35,8 @@ namespace Mineralab.Models
         [Display(Name="Direccion: ")]
         [Column("direccion")]
         public string direccion { get; set; }
+
+        [NotMapped]
+        public string mensaje { get; set; }
     }
 }
