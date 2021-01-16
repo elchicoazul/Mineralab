@@ -26,7 +26,7 @@ namespace Mineralab.Controllers
         public IActionResult Index()
         {
               var ListMetodos=_context.Metodo.ToList();
-     var LisPruebas=_context.Prueba.ToList();
+            var LisPruebas=_context.Prueba.ToList();
             //Resultado resultado = new Resultado();
             dynamic model = new ExpandoObject();
             //model.r = resultado;
