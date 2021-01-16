@@ -104,5 +104,6 @@ namespace Mineralab.Controllers
             }
             return View("Index", cliente.ToList());
         }
+
     }
 }

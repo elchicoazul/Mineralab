@@ -51,7 +51,7 @@
                     @count
                 </th>
                 <td>
-                    @Html.DisplayFor(modelItem => item.nombre)
+                    <a href="~/Guia/Index?id=@item.id">@Html.DisplayFor(modelItem => item.nombre)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ruc)
