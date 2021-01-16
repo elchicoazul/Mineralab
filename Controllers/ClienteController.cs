@@ -91,5 +91,18 @@ namespace Mineralab.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        public IActionResult Buscar(string client)
+        {
+            
+            var cliente = from m in _context.Cliente select m;
+
+            if(!String.IsNullOrEmpty(client))
+            {
+                cliente = _context.Cliente.Where(x=>x.nombre.Contains(client));
+            }
+            return View("Index", cliente.ToList());
+        }
     }
 }
